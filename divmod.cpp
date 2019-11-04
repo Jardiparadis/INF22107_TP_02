@@ -13,7 +13,6 @@ void divmod_vec(size_t n,
                 )
  {
     //https://www.csie.ntu.edu.tw/~acpang/course/asm_2004/slides/chapt_07_PartIISolve.pdf
-     std::cout << "avant"<< n << std::endl;
      asm(".intel_syntax noprefix;"
          "mov rcx, %[counter];"
          "mov r8, %[dividendes];"
@@ -44,7 +43,6 @@ void divmod_vec(size_t n,
      : [counter]"R"(n), [dividendes]"R"(dividendes), [diviseurs]"R"(diviseurs),
         [quotients]"R"(quotients), [restes]"R"(restes)
      : "rcx", "r8", "r9", "r10", "r11");
-    std::cout << "Après" << n << std::endl;
  }
 
 ////////////////////////////////////////
