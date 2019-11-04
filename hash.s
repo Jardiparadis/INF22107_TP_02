@@ -10,9 +10,9 @@ _Z4hashPKc:
 	xor rax, rax #set result (h) to 0
 	mov r9, 0 #r9 -> counter
 	.loop:
-	    xor r8, r8
-	    mov r8b, BYTE PTR [rdi + r9]
-	    cmp r8b, 0 #check if the current char is null
+	    xor r8, r8 #set r8 to 0
+	    movzx r8, BYTE PTR [rdi + r9] #get an octet from the string and extend it to fit the 64bits register r8
+	    cmp r8, 0 #check if the current char is null
 	    je .done #if current char is null, go to done
 	    ror rax, 19 #rotate eax by 19 bits
 	    not rax #negate rax
